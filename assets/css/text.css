@@ -144,11 +144,69 @@
   }
 }
 
-.minecraft-logo {
-  border-radius:50%;
-  filter:drop-shadow(0px 0px 4px #4444dd);
-  margin-left:auto;
-  margin-right:auto;
-  background-image:url(../../assets/img/grass-block.png);
+@media (min-width: 0px) {
+  .minecraft-logo {
+    display:none;
+    border-radius:50%;
+    filter:drop-shadow(0px 0px 4px #4444dd);
+    margin-left:auto;
+    margin-right:auto;
+    background-image:url(../../assets/img/grass-block.png);
+  }
+}
+
+@media (min-width: 300px) {
+  .minecraft-logo {
+    display:none;
+    border-radius:50%;
+    filter:drop-shadow(0px 0px 4px #4444dd);
+    margin-left:auto;
+    margin-right:auto;
+    background-image:url(../../assets/img/grass-block.png);
+  }
+}
+
+@media (min-width: 576px) {
+  .minecraft-logo {
+    display:none;
+    border-radius:50%;
+    filter:drop-shadow(0px 0px 4px #4444dd);
+    margin-left:auto;
+    margin-right:auto;
+    background-image:url(../../assets/img/grass-block.png);
+  }
+}
+
+@media (min-width: 768px) {
+  .minecraft-logo {
+    display:none;
+    border-radius:50%;
+    filter:drop-shadow(0px 0px 4px #4444dd);
+    margin-left:auto;
+    margin-right:auto;
+    background-image:url(../../assets/img/grass-block.png);
+  }
+}
+
+@media (min-width: 992px) {
+  .minecraft-logo {
+    display:block;
+    border-radius:50%;
+    filter:drop-shadow(0px 0px 4px #4444dd);
+    margin-left:auto;
+    margin-right:auto;
+    background-image:url(../../assets/img/grass-block.png);
+  }
+}
+
+@media (min-width: 1200px) {
+  .minecraft-logo {
+    display:block;
+    border-radius:50%;
+    filter:drop-shadow(0px 0px 4px #4444dd);
+    margin-left:auto;
+    margin-right:auto;
+    background-image:url(../../assets/img/grass-block.png);
+  }
 }
 
