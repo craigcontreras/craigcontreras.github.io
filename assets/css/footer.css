@@ -58,3 +58,43 @@
   margin-bottom:0;
 }
 
+@media (min-width: 300px) {
+  .portfolio-block.block-intro p {
+    font-size:1.21em;
+    font-weight:300;
+    margin-bottom:30px;
+  }
+}
+
+@media (min-width: 576px) {
+  .portfolio-block.block-intro p {
+    font-size:1.5em;
+    font-weight:300;
+    margin-bottom:30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .portfolio-block.block-intro p {
+    font-size:1.6em;
+    font-weight:300;
+    margin-bottom:30px;
+  }
+}
+
+@media (min-width: 992px) {
+  .portfolio-block.block-intro p {
+    font-size:1.6em;
+    font-weight:300;
+    margin-bottom:30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .portfolio-block.block-intro p {
+    font-size:1.6em;
+    font-weight:300;
+    margin-bottom:30px;
+  }
+}
+
