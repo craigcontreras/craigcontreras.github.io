@@ -14,34 +14,51 @@
 </head>
 
 <body>
-    <header>
-        <div id="introAnim" aria-label="hi, i'm craig"></div>
-        <img class="hidden" id="header-img" alt="Image of Craig Contreras">
-    </header>
-    <div id="content">
-        <h2 class="slide-animation headers">I'm a student <span id="header-emoji">&#x1F4D6;</span> specializing in full-stack development.</h2>
-        <section id="about-me">
-            <p class="slide-animation">Heyo &#x1F44B; I'm Craig Contreras! I currently reside in the United States,
-                and am currently attending high school.</p>
-            <p class="slide-animation">If you see something on the website that you like, feel free to contact me.
-            </p>
-            <p class="slide-animation">Oh, and welcome to my little space in the corner of the Internet.</p>
-            <div class="slide-animation">
-                <div id="letsTalk"></div>
-            </div>
-        </section>
-        <section id="keyboard"></section>
-        <section id="project-section">
-            <h2 class="slide-animation headers" id="project-header">Projects</h2>
-            <section id="projects">
-                <div class="project slide-animation" id="disgusting-world">
-                    <h2 class="item">Disgusting World</h2>
-                    <p class="item">A clothing brand created by Matthew Novick & Craig Contreras</p>
-                    <a href="https://disgusting.world/" class="item">Visit</a>
+    <nav>
+        <a class="slide-in-right-animation" href="https://twitter.com/craigcontreras_"><i class="fab fa-twitter"></i></a>
+        <a class="slide-in-right-animation" href="https://instagram.com/craigcontreras_"><i class="fab fa-instagram"></i></a>
+        <a class="slide-in-right-animation" href="https://tiktok.com/@craigcontreras_"><i class="fab fa-tiktok"></i></a>
+        <a class="slide-in-right-animation" href="mailto:craigcontreras@protonmail.com"><i class="fas fa-envelope-square"></i></a>
+    </nav>
+    <div id="main">
+        <header>
+            <div id="introAnim" aria-label="hi, i'm craig"></div>
+            <img class="hidden" id="header-img" alt="Image of Craig Contreras">
+        </header>
+        <div id="content">
+            <h2 class="slide-animation headers">I'm a student <span id="header-emoji">&#x1F4D6;</span> specializing in
+                full-stack development.</h2>
+            <section id="about-me">
+                <p class="slide-animation">Heyo &#x1F44B; I'm Craig Contreras! I currently reside in the United States,
+                    and am currently attending high school.</p>
+                <p class="slide-animation">If you see something on the website that you like, feel free to contact me.
+                </p>
+                <p class="slide-animation">Oh, and welcome to my little space in the corner of the Internet.</p>
+                <div class="slide-animation">
+                    <div id="letsTalk"></div>
                 </div>
             </section>
-        </section>
+            <section id="keyboard"></section>
+            <section id="project-section">
+                <h2 class="slide-animation headers" id="project-header">Projects</h2>
+                <section id="projects">
+                    <div class="project slide-animation" id="disgusting-world">
+                        <h2 class="item">Disgusting World</h2>
+                        <p class="item">A clothing brand founded in 2022 by Matthew Novick & I.</p>
+                        <a href="https://disgusting.world/" class="item">Visit</a>
+                    </div>
+                    <div class="project slide-animation" id="the-fakebook-monopoly">
+                        <h2 class="item">The Fakebook Monopoly</h2>
+                        <p class="item">A game I made in 8th grade. It was pretty bad. Go see for yourself.</p>
+                    </div>
+                </section>
+            </section>
+            <footer>
+                <p>&#169; 2022 Craig Contreras</p>
+            </footer>
+        </div>    
     </div>
+    <script src="https://kit.fontawesome.com/8e39ae09b4.js" crossorigin="anonymous"></script>
     <script type="module">
         import * as THREE from 'https://cdn.skypack.dev/three@0.136.0';
         import { OBJLoader } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/OBJLoader'

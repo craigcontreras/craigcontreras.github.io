@@ -4,6 +4,31 @@ body {
     background-color: #001cab;
 }
 
+main {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    left: 95%;
+    font-size: 2em;
+    min-height: 100%;
+    z-index: 1;
+}
+
+nav a {
+    opacity: 35%;
+    margin-top: 1em;
+    transition: 0.5s opacity;
+}
+nav a:hover {
+    opacity: 100%;
+}
+
 .headers {
     margin-top: 2em;
     margin-left: 2em;
@@ -93,6 +118,10 @@ p {
     animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 slideIn;
 }
 
+.slide-in-right-animation {
+    animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 slideInRight;
+}
+
 .zoom-in-animation {
     animation: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 zoomIn;
 }
@@ -113,7 +142,8 @@ p {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin: 2em 0;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
     max-width: 80%;
     transition: 0.5s transform;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -142,6 +172,17 @@ p {
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+.blur-animation {
+    animation: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 blur;
+    animation-fill-mode: forwards;
+}
+
+.blur-animation-reverse {
+    animation: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 blur;
+    animation-direction: reverse;
+    animation-fill-mode: forwards;
+}
+
 .project a:hover {
     transform: translateY(-0.3em);
 }
@@ -155,6 +196,12 @@ p {
     border-radius: 1em;
 }
 
+#the-fakebook-monopoly {
+    background-image: url("../img/the-fakebook-monopoly/img-1.png");
+    background-size: cover;
+    border-radius: 1em;
+}
+
 .project p {
     font-size: 1.2em;
 }
@@ -162,6 +209,12 @@ p {
 .item {
     padding: 0 3em;
     margin: 0 3em;
+}
+
+footer {
+    font-size: 1em;
+    margin: 4em 0;
+    opacity: 50%;
 }
 
 /* media queries */
@@ -204,6 +257,11 @@ p {
     .project a {
         margin-top: 2.5em;
         margin-bottom: 2.5em;
+    }
+
+    footer {
+        font-size: 0.5em;
+        font-weight: 900;
     }
 }
 
@@ -258,6 +316,16 @@ p {
     }
 }
 
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
 @keyframes zoomIn {
     0% {
         transform: scale(0.0);
@@ -265,5 +333,15 @@ p {
 
     100% {
         transform: scale(1.0);
+    }
+}
+
+@keyframes blur {
+    0% {
+        filter: blur(0px);
+    }
+
+    100% {
+        filter: blur(50px);
     }
 }

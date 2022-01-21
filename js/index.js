@@ -84,3 +84,22 @@ const slideAnimations = document.querySelectorAll(".slide-animation");
 slideAnimations.forEach((element) => {
   observer.observe(element);
 });
+
+const navLinks = document.querySelectorAll("nav a");
+navLinks.forEach(element => {
+  element.addEventListener("mouseenter", e => {
+    document.querySelector("#main").classList.remove("blur-animation-reverse");
+    setTimeout(() => {
+      document.querySelector("#main").classList.add("blur-animation");
+    }, 5);
+  });
+});
+
+const nav = document.querySelector("nav");
+nav.addEventListener("mouseleave", e => {
+  e.stopImmediatePropagation();
+  setTimeout(() => {
+    document.querySelector("#main").classList.remove("blur-animation");
+    document.querySelector("#main").classList.add("blur-animation-reverse");
+  }, 5);
+})
