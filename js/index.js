@@ -1,11 +1,11 @@
 // load the header animation
-lottie.loadAnimation({
+const headerAnim = lottie.loadAnimation({
   container: document.querySelector("#introAnim"),
   renderer: 'svg',
   loop: false,
   autoplay: true,
   path: 'https://assets5.lottiefiles.com/packages/lf20_ftnubpoc.json'
-})
+});
 
 const letsTalk = lottie.loadAnimation({
   container: document.querySelector("#letsTalk"),
@@ -64,7 +64,7 @@ header.addEventListener("mousemove", (e) => {
 // using intersection observer to see when elements enter the viewport
 let delay = 0;
 
-const observer = new IntersectionObserver(entries => {
+const slideInObserver = new IntersectionObserver(entries => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       setTimeout(() => {
@@ -82,7 +82,7 @@ const observer = new IntersectionObserver(entries => {
 
 const slideAnimations = document.querySelectorAll(".slide-animation");
 slideAnimations.forEach((element) => {
-  observer.observe(element);
+  slideInObserver.observe(element);
 });
 
 const navLinks = document.querySelectorAll("nav a");

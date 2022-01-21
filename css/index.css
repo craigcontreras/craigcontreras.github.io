@@ -23,11 +23,12 @@ nav {
 nav a {
     opacity: 35%;
     margin-top: 1em;
-    transition: 0.5s opacity;
+    transition: 0.5s opacity, 0.5s transform;
 }
 
 nav a:hover {
     opacity: 100%;
+    transform: scale(1.25);
 }
 
 .headers {
