@@ -25,6 +25,7 @@ nav a {
     margin-top: 1em;
     transition: 0.5s opacity;
 }
+
 nav a:hover {
     opacity: 100%;
 }
