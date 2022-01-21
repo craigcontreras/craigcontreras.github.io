@@ -4,15 +4,33 @@ body {
     background-color: #001cab;
 }
 
-#top-header {
+.headers {
     margin-top: 2em;
     margin-left: 2em;
     font-size: 4em;
     font-weight: 900;
     width: 50%;
     position: relative;
-    animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 slideIn;
     z-index: -3;
+}
+
+#about-me a {
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 3em;
+    margin-left: 2.75em;
+}
+
+#letsTalk {
+    height: 75%;
+    width: 75%;
+    transition: 0.5s transform;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    margin-left: 6.5em;
+}
+
+#letsTalk:hover {
+    transform: scale(1.1);
 }
 
 #introAnim {
@@ -23,7 +41,7 @@ body {
     z-index: -2;
 }
 
-#header-img {
+#header-img, #project-img {
     height: 45%;
     width: 25%;
     object-fit: cover;
@@ -40,6 +58,10 @@ body {
     z-index: -2;
 }
 
+#keyboard canvas {
+    max-width: 100%;
+}
+
 .hidden {
     display: none;
 }
@@ -48,7 +70,7 @@ body {
     visibility: hidden;
 }
 
-h1, h2, h3, p {
+h1, h2, h3, button, p, a {
     font-family: 'Roboto', sans-serif;
     color: white;
     letter-spacing: 0.001em;
@@ -63,10 +85,78 @@ p {
 
 #about-me {
     width: 50%;
+    margin-bottom: 1em;
 }
 
 .slide-in-animation {
     animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 slideIn;
+}
+
+.zoom-in-animation {
+    animation: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 zoomIn;
+}
+
+#project-header {
+    margin-top: 1em;
+    margin-bottom: 0;
+}
+
+#projects {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2em 0;
+    max-width: 80%;
+    transition: 0.5s transform;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.project h2 {
+    margin: 0;
+    font-weight: 900;
+    padding: 1em;
+    font-size: 2em;
+}
+
+.project:hover {
+    transform: scale(1.1);
+}
+
+.project a {
+    font-weight: 900;
+    text-decoration: none;
+    background: none;
+    border: 5px 5px white;
+    border-style: solid;
+    border-radius: 1em;
+    transition: 0.5s transform;
+    padding: 1.5em 3em;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.project a:hover {
+    transform: translateY(-0.3em);
+}
+
+.project a:active {
+    transform: scale(1.1);
+}
+
+#disgusting-world {
+    background-image: url("../img/disgusting-world/disgusting-world-bg.png");
+    border-radius: 1em;
+}
+
+.item {
+    padding: 0 3em;
+    margin: 0 3em;
 }
 
 /* animations */
@@ -78,5 +168,15 @@ p {
 
     100% {
         transform: translateX(0%);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.0);
+    }
+
+    100% {
+        transform: scale(1.0);
     }
 }
