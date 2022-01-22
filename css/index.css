@@ -4,9 +4,26 @@ body {
     background-color: #001cab;
 }
 
+.no-events {
+    pointer-events: none;
+}
+
 main {
     margin: 0;
     padding: 0;
+}
+
+#hamburger {
+    display: none;
+}
+
+#letsTalk {
+    cursor: pointer;
+}
+
+#hamburger-icon {
+    height: 1.5em;
+    width: 1.5em;
 }
 
 nav {
@@ -60,6 +77,10 @@ nav a:hover {
     transform: scale(1.1);
 }
 
+.desktop-hyperlink {
+    display: inline;
+}
+
 #introAnim {
     background-color: #001fbc;
     margin: 0;
@@ -68,9 +89,9 @@ nav a:hover {
     z-index: -2;
 }
 
-#header-img, #project-img {
-    height: 45%;
-    width: 25%;
+header #header-img, header #project-img {
+    max-height: 25rem;
+    max-width: 25rem;
     object-fit: cover;
     border-radius: 1em;
     position: absolute;
@@ -122,6 +143,11 @@ p {
 
 .slide-in-right-animation {
     animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 slideInRight;
+}
+
+.slide-in-right-animation-reverse {
+    animation: 2s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 slideInRight;
+    animation-direction: reverse;
 }
 
 .zoom-in-animation {
@@ -248,6 +274,15 @@ footer {
         padding-bottom: 1em;
     }
 
+    #hamburger {
+        display: inline;
+        margin-right: 3.125em;
+    }
+
+    .desktop-hyperlink {
+        display: none;
+    }
+
     .headers {
         font-size: 3em;
         margin-left: 0.9em;
@@ -285,6 +320,10 @@ footer {
     #the-fakebook-monopoly p {
         margin-bottom: 2.5em;
     }
+
+    #introAnim canvas {
+        transform: scale(5);
+    }
 }
 
 @media (max-width: 1024px) {
@@ -297,6 +336,10 @@ footer {
         margin: auto;
         max-width: 75%;
         padding-bottom: 1em;
+    }
+    
+    .desktop-hyperlink {
+        margin-right: 3em;
     }
 
     .headers {

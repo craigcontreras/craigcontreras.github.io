@@ -1,3 +1,5 @@
+let hamburgerEnabled;
+
 // load the header animation
 const headerAnim = lottie.loadAnimation({
   container: document.querySelector("#introAnim"),
@@ -5,6 +7,14 @@ const headerAnim = lottie.loadAnimation({
   loop: false,
   autoplay: true,
   path: 'https://assets5.lottiefiles.com/packages/lf20_ftnubpoc.json'
+});
+
+const hamburgerAnim = lottie.loadAnimation({
+  container: document.querySelector("#hamburger-icon"),
+  renderer: 'svg',
+  loop: false,
+  autoplay: false,
+  path: 'https://assets4.lottiefiles.com/packages/lf20_50hJPU.json'
 });
 
 const letsTalk = lottie.loadAnimation({
@@ -45,7 +55,7 @@ header.addEventListener("mouseenter", (e) => {
 
   const random = (Math.random() * -25 + 1) + (Math.random() * 25 + 1);
 
-  headerImg.style.transform = `rotate(${random}deg) translate(-50%, -50%)`;
+  headerImg.style.transform = `rotate(${random}deg) translate(-50%)`;
   headerImg.classList.remove("hidden");
 });
 
@@ -88,18 +98,92 @@ slideAnimations.forEach((element) => {
 const navLinks = document.querySelectorAll("nav a");
 navLinks.forEach(element => {
   element.addEventListener("mouseenter", e => {
-    document.querySelector("#main").classList.remove("blur-animation-reverse");
-    setTimeout(() => {
-      document.querySelector("#main").classList.add("blur-animation");
-    }, 5);
+    if (!hamburgerEnabled) {
+      document.querySelector("#main").classList.remove("blur-animation-reverse");
+      setTimeout(() => {
+        document.querySelector("#main").classList.add("blur-animation");
+      }, 5);
+    }
   });
 });
 
 const nav = document.querySelector("nav");
 nav.addEventListener("mouseleave", e => {
   e.stopImmediatePropagation();
-  setTimeout(() => {
-    document.querySelector("#main").classList.remove("blur-animation");
-    document.querySelector("#main").classList.add("blur-animation-reverse");
-  }, 5);
+  if (!hamburgerEnabled) {
+    setTimeout(() => {
+      document.querySelector("#main").classList.remove("blur-animation");
+      document.querySelector("#main").classList.add("blur-animation-reverse");
+    }, 5);
+  }
 })
+
+const hamburger = document.querySelector("#hamburger");
+let hamburgerMenuOpened;
+
+hamburger.addEventListener("click", e => {
+  e.preventDefault();
+  if (!hamburgerMenuOpened) {
+    hamburgerMenuOpened = true;
+    hamburgerAnim.playSegments([0, 10], true);
+    document.querySelector("#main").classList.add("no-events");
+    document.querySelectorAll(".desktop-hyperlink").forEach(element => {
+      element.style.display = "inline";
+      setTimeout(() => {
+        element.classList.add("slide-in-right-animation");
+        setTimeout(() => {
+          element.classList.remove("slide-in-right-animation");
+        }, 5);
+      }, 5);
+
+      document.querySelector("#main").classList.remove("blur-animation-reverse");
+      setTimeout(() => {
+        document.querySelector("#main").classList.add("blur-animation");
+      }, 5);
+    })  
+  } else {
+    hamburgerMenuOpened = false;
+    hamburgerAnim.playSegments([10, 21], true);
+    document.querySelector("#main").classList.remove("no-events");
+    document.querySelectorAll(".desktop-hyperlink").forEach(element => {
+      element.classList.add("slide-in-right-animation-reverse");
+      setTimeout(() => {
+        element.style.display = "none";
+        element.classList.remove("slide-in-right-animation-reverse");
+      }, 20);
+    });
+
+    setTimeout(() => {
+      document.querySelector("#main").classList.remove("blur-animation");
+      setTimeout(() => {
+        document.querySelector("#main").classList.add("blur-animation-reverse");
+      }, 5);
+    }, 5);  
+  }
+});
+
+const hamburgerObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      hamburgerEnabled = true;
+      document.querySelector("#main").classList.remove("blur-animation");
+      document.querySelectorAll(".desktop-hyperlink").forEach(element => {
+        element.style.display = "none";
+        element.classList.remove("slide-in-right-animation");
+      })
+    } else {
+      hamburgerEnabled = false;
+      hamburgerMenuOpened = false;
+      document.querySelector("#main").classList.remove("blur-animation");
+      document.querySelector("#main").classList.remove("blur-animation-reverse");
+      document.querySelector("#main").classList.remove("no-events");
+      hamburgerAnim.playSegments([0, 1], true);
+      document.querySelectorAll(".desktop-hyperlink").forEach(element => {
+        element.style.display = "inline";
+        element.classList.add("slide-in-right-animation");
+      });
+    }
+  });
+});
+
+hamburgerObserver.observe(hamburger);
