@@ -129,13 +129,6 @@ hamburger.addEventListener("click", e => {
     document.querySelector("#main").classList.add("no-events");
     document.querySelectorAll(".desktop-hyperlink").forEach(element => {
       element.style.display = "inline";
-      setTimeout(() => {
-        element.classList.add("slide-in-right-animation");
-        setTimeout(() => {
-          element.classList.remove("slide-in-right-animation");
-        }, 5);
-      }, 5);
-
       document.querySelector("#main").classList.remove("blur-animation-reverse");
       setTimeout(() => {
         document.querySelector("#main").classList.add("blur-animation");
@@ -145,13 +138,7 @@ hamburger.addEventListener("click", e => {
     hamburgerMenuOpened = false;
     hamburgerAnim.playSegments([10, 21], true);
     document.querySelector("#main").classList.remove("no-events");
-    document.querySelectorAll(".desktop-hyperlink").forEach(element => {
-      element.classList.add("slide-in-right-animation-reverse");
-      setTimeout(() => {
-        element.style.display = "none";
-        element.classList.remove("slide-in-right-animation-reverse");
-      }, 20);
-    });
+    element.style.display = "none";
 
     setTimeout(() => {
       document.querySelector("#main").classList.remove("blur-animation");
