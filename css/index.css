@@ -245,20 +245,12 @@ footer {
     opacity: 50%;
 }
 
-@media (max-width: 476px) {
+/* media queries */
+@media (max-width: 992px) {
     nav {
         left: 90%;
     }
-}
 
-@media (max-width: 768px) {
-    nav {
-        left: 92.75%;
-    }
-}
-
-/* media queries */
-@media (max-width: 992px) {
     #about-me {
         width: 100%;
     }
