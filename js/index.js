@@ -138,8 +138,10 @@ hamburger.addEventListener("click", e => {
     hamburgerMenuOpened = false;
     hamburgerAnim.playSegments([10, 21], true);
     document.querySelector("#main").classList.remove("no-events");
-    element.style.display = "none";
-
+    document.querySelectorAll(".desktop-hyperlink").forEach(element => {
+      element.style.display = "none";
+    });
+    
     setTimeout(() => {
       document.querySelector("#main").classList.remove("blur-animation");
       setTimeout(() => {
