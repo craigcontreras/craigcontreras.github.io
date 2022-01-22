@@ -9,6 +9,10 @@ const headerAnim = lottie.loadAnimation({
   path: 'https://assets5.lottiefiles.com/packages/lf20_ftnubpoc.json'
 });
 
+window.addEventListener("resize", () => {
+  headerAnim.resize();
+})
+
 const hamburgerAnim = lottie.loadAnimation({
   container: document.querySelector("#hamburger-icon"),
   renderer: 'svg',
@@ -141,7 +145,7 @@ hamburger.addEventListener("click", e => {
     document.querySelectorAll(".desktop-hyperlink").forEach(element => {
       element.style.display = "none";
     });
-    
+
     setTimeout(() => {
       document.querySelector("#main").classList.remove("blur-animation");
       setTimeout(() => {

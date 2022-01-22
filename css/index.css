@@ -89,6 +89,11 @@ nav a:hover {
     z-index: -2;
 }
 
+#introAnim canvas {
+    min-height: 100%;
+    min-width: 100%;
+}
+
 header #header-img, header #project-img {
     max-height: 25rem;
     max-width: 25rem;
@@ -259,6 +264,10 @@ footer {
         left: 90%;
         font-size: 1.5em;
     }
+
+    #introAnim canvas {
+        transform: scale(2);
+    }
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
@@ -283,7 +292,7 @@ footer {
     .desktop-hyperlink {
         margin-right: 3.125em;
     }
-    
+
     #hamburger {
         display: inline;
         margin-right: 3.125em;
