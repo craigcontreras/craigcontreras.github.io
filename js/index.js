@@ -231,7 +231,6 @@ const wcydObserver = new IntersectionObserver(entries => {
     }
   })
 }, {
-  root: document.querySelector("#wcyd-anim"),
   threshold: 1.0
 });
 
