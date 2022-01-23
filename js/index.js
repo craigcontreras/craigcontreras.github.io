@@ -224,12 +224,15 @@ let animationStart = 0;
 
 const wcydObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    console.log(entry.intersectionRatio)
+    if (entry.intersectionRatio >= 1) {
       document.addEventListener("scroll", playAnimation);
     } else {
       document.removeEventListener("scroll", playAnimation);
     }
   })
+}, {
+  threshold: 1.0
 });
 
 function playAnimation() {
