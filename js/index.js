@@ -37,8 +37,8 @@ if (x.matches) {
     loop: false,
     autoplay: false,
     path: 'json/wcyd-animation-desktop.json',
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMax slice'
+    rendererSettings : {
+      preserveAspectRatio : 'xMidYMax slice'
     }
   })
 };
@@ -176,7 +176,7 @@ hamburger.addEventListener("click", e => {
       setTimeout(() => {
         document.querySelector("#main").classList.add("blur-animation");
       }, 5);
-    })
+    })  
   } else {
     hamburgerMenuOpened = false;
     hamburgerAnim.playSegments([10, 21], true);
@@ -190,7 +190,7 @@ hamburger.addEventListener("click", e => {
       setTimeout(() => {
         document.querySelector("#main").classList.add("blur-animation-reverse");
       }, 5);
-    }, 5);
+    }, 5);  
   }
 });
 
@@ -221,28 +221,42 @@ const hamburgerObserver = new IntersectionObserver(entries => {
 hamburgerObserver.observe(hamburger);
 
 let animationStart = 0;
-const wcydObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    console.log(entry.intersectionRatio)
-    if (entry.intersectionRatio >= 1) {
-      document.addEventListener("scroll", playAnimation);
-    } else {
-      document.removeEventListener("scroll", playAnimation);
-    }
-  })
-}, {
-  threshold: 1.0
-});
+let wcydObserver;
+if (x.matches) {
+  wcydObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      console.log(entry.intersectionRatio)
+      if (entry.intersectionRatio > 0) {
+        document.addEventListener("scroll", playAnimation);
+      } else {
+        document.removeEventListener("scroll", playAnimation);
+      }
+    })
+  });
+} else {
+  wcydObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      console.log(entry.intersectionRatio)
+      if (entry.intersectionRatio >= 1) {
+        document.addEventListener("scroll", playAnimation);
+      } else {
+        document.removeEventListener("scroll", playAnimation);
+      }
+    })
+  }, {
+    threshold: 1.0
+  });
+}
 
 function playAnimation() {
   let st = window.pageYOffset || document.documentElement.scrollTop;
-  if (st > lastScrollTop) {
+  if (st > lastScrollTop){
     wcydAnim.playSegments([animationStart, animationStart + 1], true);
     if (animationStart >= 432) {
       complete = true;
     } else {
       animationStart++;
-    }
+    }  
   } else {
     wcydAnim.playSegments([animationStart, animationStart - 1], true);
     if (animationStart != 0) {
