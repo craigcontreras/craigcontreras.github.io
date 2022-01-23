@@ -257,6 +257,10 @@ footer {
         left: 87.5%;
         font-size: 1.5em;
     }
+
+    #introAnim svg {
+        transform: scale(1.65) !important;
+    }
 }
 
 @media (min-width: 477px) and (max-width: 768px) {
@@ -265,8 +269,8 @@ footer {
         font-size: 1.5em;
     }
 
-    #introAnim canvas {
-        transform: scale(2);
+    #introAnim svg {
+        transform: scale(1.25) !important;
     }
 }
 
