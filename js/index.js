@@ -226,7 +226,7 @@ if (x.matches) {
   wcydObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       console.log(entry.intersectionRatio)
-      if (entry.intersectionRatio >= 0.5) {
+      if (entry.intersectionRatio > 0) {
         document.addEventListener("scroll", playAnimation);
       } else {
         document.removeEventListener("scroll", playAnimation);
@@ -237,7 +237,7 @@ if (x.matches) {
   wcydObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       console.log(entry.intersectionRatio)
-      if (entry.intersectionRatio >= 0.5) {
+      if (entry.intersectionRatio >= 1) {
         document.addEventListener("scroll", playAnimation);
       } else {
         document.removeEventListener("scroll", playAnimation);
