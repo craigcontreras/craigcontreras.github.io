@@ -1,6 +1,7 @@
 let hamburgerEnabled;
 let scrollEffect = 0;
 let complete = false;
+let lastScrollTop = 0;
 
 // load the header animation
 const headerAnim = lottie.loadAnimation({
@@ -232,12 +233,24 @@ const wcydObserver = new IntersectionObserver(entries => {
 });
 
 function playAnimation() {
-  wcydAnim.playSegments([animationStart, animationStart + 1], true);
-  if (animationStart >= 432) {
-    complete = true;
+  let st = window.pageYOffset || document.documentElement.scrollTop;
+  if (st > lastScrollTop){
+    wcydAnim.playSegments([animationStart, animationStart + 1], true);
+    if (animationStart >= 432) {
+      complete = true;
+    } else {
+      animationStart++;
+    }  
   } else {
-    animationStart++;
+    wcydAnim.playSegments([animationStart, animationStart - 1], true);
+    if (animationStart != 0) {
+      animationStart--;
+    } else {
+      document.querySelector("#spacer").style.height = `0vh`;
+      scrollEffect = 0;
+    }
   }
+  lastScrollTop = st <= 0 ? 0 : st;
 }
 
 wcydObserver.observe(document.querySelector("#wcyd-anim"));
