@@ -279,6 +279,10 @@ footer {
     #wcyd-anim svg {
         transform: scale(1.25) !important;
     }
+
+    footer {
+        font-size: 0.5em;
+    }
 }
 
 @media (min-width: 477px) and (max-width: 768px) {
@@ -293,6 +297,10 @@ footer {
 
     #wcyd-anim svg {
         transform: scale(1.25) !important;
+    }
+
+    footer {
+        font-size: 0.5em;
     }
 }
 
@@ -368,6 +376,10 @@ footer {
 
     #introAnim canvas {
         transform: scale(5);
+    }    
+    
+    footer {
+        font-size: 0.5em;
     }
 }
 
@@ -410,9 +422,11 @@ footer {
         margin-top: 2.5em;
         margin-bottom: 2.5em;
     }
+
+    footer {
+        font-size: 0.5em;
+    }
 }
-
-
 
 /* animations */
 
