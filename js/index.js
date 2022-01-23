@@ -1,4 +1,6 @@
 let hamburgerEnabled;
+let scrollEffect = 0;
+let complete = false;
 
 // load the header animation
 const headerAnim = lottie.loadAnimation({
@@ -16,6 +18,45 @@ const hamburgerAnim = lottie.loadAnimation({
   autoplay: false,
   path: 'https://assets4.lottiefiles.com/packages/lf20_50hJPU.json'
 });
+
+let x = window.matchMedia("(max-width: 768px)");
+let wcydAnim;
+if (x.matches) {
+  wcydAnim = lottie.loadAnimation({
+    container: document.querySelector("#wcyd-anim"),
+    renderer: 'canvas',
+    loop: false,
+    autoplay: false,
+    path: 'json/wcyd-animation-mobile.json'
+  })
+} else {
+  wcydAnim = lottie.loadAnimation({
+    container: document.querySelector("#wcyd-anim"),
+    renderer: 'canvas',
+    loop: false,
+    autoplay: false,
+    path: 'json/wcyd-animation-desktop.json',
+    rendererSettings : {
+      preserveAspectRatio : 'xMidYMax slice'
+    }
+  })
+};
+
+document.addEventListener("scroll", endlessScroll);
+
+function endlessScroll() {
+  scrollEffect += 1;
+  document.querySelector("#spacer").style.height = `${100 + (scrollEffect * 100)}vh`;
+
+  if (complete) {
+    document.removeEventListener("scroll", endlessScroll);
+    document.querySelector("#spacer").style.display = "none";
+    document.querySelector("#wcyd-anim").classList.remove("sticky");
+    document.querySelector("#project-section").classList.remove("hidden");
+  }
+}
+
+window.onbeforeunload = () => window.scrollTo(0, 0);
 
 const letsTalk = lottie.loadAnimation({
   container: document.querySelector("#letsTalk"),
@@ -176,3 +217,26 @@ const hamburgerObserver = new IntersectionObserver(entries => {
 });
 
 hamburgerObserver.observe(hamburger);
+
+let animationStart = 0;
+
+const wcydObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.addEventListener("scroll", playAnimation);
+    } else {
+      document.removeEventListener("scroll", playAnimation);
+    }
+  })
+});
+
+function playAnimation() {
+  wcydAnim.playSegments([animationStart, animationStart + 1], true);
+  if (animationStart >= 432) {
+    complete = true;
+  } else {
+    animationStart++;
+  }
+}
+
+wcydObserver.observe(document.querySelector("#wcyd-anim"));

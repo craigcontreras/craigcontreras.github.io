@@ -8,6 +8,11 @@ body {
     pointer-events: none;
 }
 
+#wcyd-anim {
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
 main {
     margin: 0;
     padding: 0;
@@ -66,8 +71,8 @@ nav a:hover {
 }
 
 #letsTalk {
-    height: 75%;
-    width: 75%;
+    height: 35%;
+    width: 35%;
     transition: 0.5s transform;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     margin-left: 6.5em;
@@ -250,6 +255,15 @@ footer {
     opacity: 50%;
 }
 
+#wcyd-anim {
+    overflow: visible;
+}
+
+.sticky {
+    position: sticky !important;
+    top: 0;
+}
+
 /* media queries */
 
 @media (max-width: 476px) {
@@ -261,6 +275,10 @@ footer {
     #introAnim svg {
         transform: scale(1.65) !important;
     }
+
+    #wcyd-anim svg {
+        transform: scale(1.25) !important;
+    }
 }
 
 @media (min-width: 477px) and (max-width: 768px) {
@@ -270,6 +288,10 @@ footer {
     }
 
     #introAnim svg {
+        transform: scale(1.25) !important;
+    }
+
+    #wcyd-anim svg {
         transform: scale(1.25) !important;
     }
 }
@@ -312,8 +334,8 @@ footer {
     }
 
     #letsTalk {
-        width: 50%;
-        height: 50%;
+        width: 35%;
+        height: 35%;
         margin-left: 1.75em;
     }
 
@@ -371,8 +393,8 @@ footer {
     }
 
     #letsTalk {
-        width: 50%;
-        height: 50%;
+        width: 35%;
+        height: 35%;
         margin-left: 1.75em;
     }
     
@@ -431,5 +453,15 @@ footer {
 
     100% {
         filter: blur(50px);
+    }
+}
+
+@keyframes width {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(0, 100vh);
     }
 }
