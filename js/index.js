@@ -52,6 +52,7 @@ function endlessScroll() {
     document.removeEventListener("scroll", endlessScroll);
     document.querySelector("#spacer").style.display = "none";
     document.querySelector("#wcyd-anim").classList.remove("sticky");
+    document.querySelector("#wcyd-anim").classList.add("hidden");
     document.querySelector("#project-section").classList.remove("hidden");
   }
 }
