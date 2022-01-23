@@ -221,19 +221,32 @@ const hamburgerObserver = new IntersectionObserver(entries => {
 hamburgerObserver.observe(hamburger);
 
 let animationStart = 0;
-
-const wcydObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    console.log(entry.intersectionRatio)
-    if (entry.intersectionRatio >= 1) {
-      document.addEventListener("scroll", playAnimation);
-    } else {
-      document.removeEventListener("scroll", playAnimation);
-    }
-  })
-}, {
-  threshold: 1.0
-});
+let wcydObserver;
+if (x.matches) {
+  wcydObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      console.log(entry.intersectionRatio)
+      if (entry.intersectionRatio >= 0.5) {
+        document.addEventListener("scroll", playAnimation);
+      } else {
+        document.removeEventListener("scroll", playAnimation);
+      }
+    })
+  });
+} else {
+  wcydObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      console.log(entry.intersectionRatio)
+      if (entry.intersectionRatio >= 0.5) {
+        document.addEventListener("scroll", playAnimation);
+      } else {
+        document.removeEventListener("scroll", playAnimation);
+      }
+    })
+  }, {
+    threshold: 1.0
+  });
+}
 
 function playAnimation() {
   let st = window.pageYOffset || document.documentElement.scrollTop;
