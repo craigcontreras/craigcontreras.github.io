@@ -5,7 +5,7 @@ let lastScrollTop = 0;
 
 // load the header animation
 const headerAnim = lottie.loadAnimation({
-  container: document.querySelector("#introAnim"),
+  container: document.querySelector("#intro-anim"),
   renderer: 'svg',
   loop: false,
   autoplay: true,
@@ -61,14 +61,14 @@ function endlessScroll() {
 window.onbeforeunload = () => window.scrollTo(0, 0);
 
 const letsTalk = lottie.loadAnimation({
-  container: document.querySelector("#letsTalk"),
+  container: document.querySelector("#lets-talk"),
   renderer: 'svg',
   loop: false,
   autoplay: false,
   path: "json/letstalk.json"
 });
 
-const letsTalkContainer = document.querySelector("#letsTalk");
+const letsTalkContainer = document.querySelector("#lets-talk");
 letsTalkContainer.addEventListener("mouseenter", e => {
   e.stopPropagation();
   letsTalk.play();
@@ -85,7 +85,7 @@ letsTalkContainer.addEventListener("click", e => {
 
 const header = document.querySelector("header");
 const headerImg = document.querySelector("#header-img");
-const div = document.querySelector("#introAnim");
+const div = document.querySelector("#intro-anim");
 
 // create image element
 header.addEventListener("mouseenter", (e) => {

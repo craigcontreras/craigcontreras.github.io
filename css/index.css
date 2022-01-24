@@ -8,106 +8,11 @@ body {
     pointer-events: none;
 }
 
-#wcyd-anim {
-    width: 100vw !important;
-    height: 100vh !important;
-}
+/* JS animations */
 
-main {
-    margin: 0;
-    padding: 0;
-}
-
-#hamburger {
-    display: none;
-}
-
-#letsTalk {
-    cursor: pointer;
-}
-
-#hamburger-icon {
-    height: 1.5em;
-    width: 1.5em;
-}
-
-nav {
-    display: flex;
-    position: fixed;
-    flex-direction: column;
-    align-items: center;
-    left: 95%;
-    font-size: 2em;
-    min-height: 100%;
-    z-index: 1;
-}
-
-nav a {
-    opacity: 35%;
-    margin-top: 1em;
-    transition: 0.5s opacity, 0.5s transform;
-}
-
-nav a:hover {
-    opacity: 100%;
-    transform: scale(1.25);
-}
-
-.headers {
-    margin-top: 2em;
-    margin-left: 2em;
-    font-size: 4em;
-    font-weight: 900;
-    width: 50%;
-    position: relative;
-    z-index: -3;
-}
-
-#about-me a {
-    text-decoration: none;
-    font-weight: 900;
-    font-size: 3em;
-    margin-left: 2.75em;
-}
-
-#letsTalk {
-    height: 35%;
-    width: 35%;
-    transition: 0.5s transform;
-    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-    margin-left: 6.5em;
-}
-
-#letsTalk:hover {
-    transform: scale(1.1);
-}
-
-.desktop-hyperlink {
-    display: inline;
-}
-
-#introAnim {
-    background-color: #001fbc;
-    margin: 0;
-    padding: 6em;
-    position: relative;
-    z-index: -2;
-}
-
-#introAnim canvas {
-    min-height: 100%;
-    min-width: 100%;
-}
-
-header #header-img, header #project-img {
-    max-height: 25rem;
-    max-width: 25rem;
-    object-fit: cover;
-    border-radius: 1em;
-    position: absolute;
-    z-index: -1;
-    -webkit-box-shadow: 5px 5px 24px -10px rgba(1,0,48,0.25); 
-    box-shadow: 5px 5px 24px -10px rgba(1,0,48,0.25);
+.sticky {
+    position: sticky !important;
+    top: 0;
 }
 
 #keyboard {
@@ -121,30 +26,49 @@ header #header-img, header #project-img {
     max-width: 100%;
 }
 
-.hidden {
-    display: none;
+#wcyd-anim {
+    width: 100vw !important;
+    height: 100vh !important;
+    overflow: visible;
 }
 
-.not-visible {
-    visibility: hidden;
+#intro-anim {
+    background-color: #001fbc;
+    margin: 0;
+    padding: 6em;
+    position: relative;
+    z-index: -2;
 }
 
-h1, h2, h3, button, p, a {
-    font-family: 'Roboto', sans-serif;
-    color: white;
-    letter-spacing: 0.001em;
-    line-height: 1em;
+#intro-anim canvas {
+    min-height: 100%;
+    min-width: 100%;
 }
 
-p {
-    font-size: 1.5em;
-    margin-left: 5.5em;
-    font-weight: 500;
+#lets-talk {
+    height: 35%;
+    width: 35%;
+    transition: 0.5s transform;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    margin-left: 6.5em;
+    cursor: pointer;
 }
 
-#about-me {
-    width: 50%;
-    margin-bottom: 1em;
+#lets-talk:hover {
+    transform: scale(1.1);
+}
+
+/* CSS animations */
+
+.blur-animation {
+    animation: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 blur;
+    animation-fill-mode: forwards;
+}
+
+.blur-animation-reverse {
+    animation: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 blur;
+    animation-direction: reverse;
+    animation-fill-mode: forwards;
 }
 
 .slide-in-animation {
@@ -164,7 +88,9 @@ p {
     animation: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 zoomIn;
 }
 
-#project-header {
+/* Project section */
+
+#project-section-header {
     margin-top: 1em;
     margin-bottom: 0;
 }
@@ -210,15 +136,8 @@ p {
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.blur-animation {
-    animation: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 blur;
-    animation-fill-mode: forwards;
-}
-
-.blur-animation-reverse {
-    animation: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) 0s 1 blur;
-    animation-direction: reverse;
-    animation-fill-mode: forwards;
+.project p {
+    font-size: 1.2em;
 }
 
 .project a:hover {
@@ -227,6 +146,50 @@ p {
 
 .project a:active {
     transform: scale(1.1);
+}
+
+/* Flex container shit */
+
+.item {
+    padding: 0 3em;
+    margin: 0 3em;
+}
+
+/* Navbar */
+
+#hamburger {
+    display: none;
+}
+
+#hamburger-icon {
+    height: 1.5em;
+    width: 1.5em;
+}
+
+nav {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    left: 95%;
+    font-size: 2em;
+    min-height: 100%;
+    z-index: 1;
+}
+
+.desktop-hyperlink {
+    display: inline;
+}
+
+nav a {
+    opacity: 35%;
+    margin-top: 1em;
+    transition: 0.5s opacity, 0.5s transform;
+}
+
+nav a:hover {
+    opacity: 100%;
+    transform: scale(1.25);
 }
 
 #disgusting-world {
@@ -240,13 +203,11 @@ p {
     border-radius: 1em;
 }
 
-.project p {
-    font-size: 1.2em;
-}
+/* Content styling */
 
-.item {
-    padding: 0 3em;
-    margin: 0 3em;
+main {
+    margin: 0;
+    padding: 0;
 }
 
 footer {
@@ -255,16 +216,63 @@ footer {
     opacity: 50%;
 }
 
-#wcyd-anim {
-    overflow: visible;
+.headers {
+    margin-top: 2em;
+    margin-left: 2em;
+    font-size: 4em;
+    font-weight: 900;
+    width: 50%;
+    position: relative;
+    z-index: -3;
 }
 
-.sticky {
-    position: sticky !important;
-    top: 0;
+#about-me-section a {
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 3em;
+    margin-left: 2.75em;
 }
 
-/* media queries */
+header #header-img, header #project-img {
+    max-height: 25rem;
+    max-width: 25rem;
+    object-fit: cover;
+    border-radius: 1em;
+    position: absolute;
+    z-index: -1;
+    -webkit-box-shadow: 5px 5px 24px -10px rgba(1,0,48,0.25); 
+    box-shadow: 5px 5px 24px -10px rgba(1,0,48,0.25);
+}
+
+h1, h2, h3, button, p, a {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    letter-spacing: 0.001em;
+    line-height: 1em;
+}
+
+p {
+    font-size: 1.5em;
+    margin-left: 5.5em;
+    font-weight: 500;
+}
+
+#about-me-section {
+    width: 50%;
+    margin-bottom: 1em;
+}
+
+/* Visibility */
+
+.hidden {
+    display: none;
+}
+
+.not-visible {
+    visibility: hidden;
+}
+
+/* Media queries */
 
 @media (max-width: 476px) {
     nav {
@@ -272,7 +280,7 @@ footer {
         font-size: 1.5em;
     }
 
-    #introAnim svg {
+    #intro-anim svg {
         transform: scale(1.65) !important;
     }
 
@@ -291,7 +299,7 @@ footer {
         font-size: 1.5em;
     }
 
-    #introAnim svg {
+    #intro-anim svg {
         transform: scale(1.25) !important;
     }
 
@@ -341,7 +349,7 @@ footer {
         margin-left: 0.9em;
     }
 
-    #letsTalk {
+    #lets-talk {
         width: 35%;
         height: 35%;
         margin-left: 1.75em;
@@ -374,7 +382,7 @@ footer {
         margin-bottom: 2.5em;
     }
 
-    #introAnim canvas {
+    #intro-anim canvas {
         transform: scale(5);
     }    
     
@@ -404,7 +412,7 @@ footer {
         margin-left: 0.9em;
     }
 
-    #letsTalk {
+    #lets-talk {
         width: 35%;
         height: 35%;
         margin-left: 1.75em;
