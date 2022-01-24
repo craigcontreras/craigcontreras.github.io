@@ -47,7 +47,7 @@ document.addEventListener("scroll", endlessScroll);
 
 function endlessScroll() {
   scrollEffect += 1;
-  document.querySelector("#spacer").style.height = `${100 + (scrollEffect * 100)}vh`;
+  document.querySelector("#spacer").style.height = `${100 + (scrollEffect * 75)}vh`;
 
   if (complete) {
     document.removeEventListener("scroll", endlessScroll);
