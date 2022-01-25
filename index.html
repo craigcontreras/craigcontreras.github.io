@@ -6,143 +6,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="website" property="og:type">
-    <meta content="https://craigcontreras.dev/" property="og:url">
-    <meta name="og:site_name" content="Craig Contreras">
-    <meta name="keywords"
-        content="portfolio, web dev, dev for hire, for hire, app dev, dev, app, web, developer, development">
-    <meta name="author" content="Craig Contreras">
-    <meta property="og:description" content="The portfolio for Craig Contreras">
-    <meta property="og:image" content="/favicon-512x512.png">
-    <meta property="og:title" content="Web Portfolio - Craig Contreras">
-    <title>Web Portfolio - Craig Contreras</title>
-
     <!-- stylesheets -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&family=Shippori+Antique&display=swap"
         rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="css/index.css">
-
-    <!-- Global site tag (gtag.js) - Google Analytics
-        Here's hoping this shit don't get hijacked lmaooooo -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-217946576-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-217946576-1');
-    </script>
 </head>
 
 <body>
-    <nav>
-        <a aria-label="Navigation bar menu" id="hamburger" class="slide-in-right-animation" href="">
-            <div id="hamburger-icon"></div>
-        </a>
-        <a aria-label="Twitter" class="desktop-hyperlink slide-in-right-animation"
-            href="https://twitter.com/craigcontreras_"><i class="fab fa-twitter"></i></a>
-        <a aria-label="Instagram" class="desktop-hyperlink slide-in-right-animation"
-            href="https://instagram.com/craigcontreras_"><i class="fab fa-instagram"></i></a>
-        <a aria-label="GitHub" class="desktop-hyperlink slide-in-right-animation"
-            href="https://github.com/craigcontreras"><i class="fab fa-github"></i></a>
-        <a aria-label="TikTok" class="desktop-hyperlink slide-in-right-animation"
-            href="https://tiktok.com/@craigcontreras_"><i class="fab fa-tiktok"></i></a>
-        <a aria-label="Email" class="desktop-hyperlink slide-in-right-animation"
-            href="mailto:craigcontreras@protonmail.com"><i class="fas fa-envelope-square"></i></a>
-    </nav>
-    <div id="main">
-        <header>
-            <div id="intro-anim" aria-label="Animation that says Hi, I'm Craig"></div>
-            <img loading="lazy" class="hidden" id="header-img" alt="Image of Craig Contreras">
-        </header>
-        <div id="content">
-            <h2 class="slide-animation headers">I'm a student <span id="header-emoji">&#x1F4D6;</span> building things for the web.</h2>
-            <section id="about-me-section">
-                <p class="slide-animation">Heyo &#x1F44B; I'm Craig Contreras! I currently reside in the United States,
-                    and am currently attending high school.</p>
-                <p class="slide-animation">If you see something on the website that you like, feel free to contact me.
-                </p>
-                <p class="slide-animation">Oh, and welcome to my little space in the corner of the Internet.</p>
-            </section>
-            <section aria-label="Animation of keyboard constantly rotating" id="keyboard"></section>
-            <section aria-label="What can you do? animation reel" class="sticky" id="wcyd-anim"></section>
-            <section id="spacer"></section>
-            <section id="project-section" class="hidden">
-                <div class="slide-animation">
-                    <div id="lets-talk"></div>
-                </div>
-                <h2 class="slide-animation headers" id="project-section-header">Projects</h2>
-                <section id="projects">
-                    <div aria-label="Disgusting World project" class="project slide-animation" id="disgusting-world">
-                        <h2 class="item">Disgusting World</h2>
-                        <p class="item">A clothing brand founded in 2022 by Matthew Novick & I.</p>
-                        <a href="https://disgusting.world/" class="item">Visit</a>
-                    </div>
-                    <div aria-label="The Fakebook Monopoly project" class="project slide-animation"
-                        id="the-fakebook-monopoly">
-                        <h2 class="item">The Fakebook Monopoly</h2>
-                        <p class="item">A game I made in 8th grade. It was pretty bad. Go see for yourself.</p>
-                    </div>
-                </section>
-            </section>
-            <footer>
-                <p>&#169; 2022 Craig Contreras</p>
-            </footer>
-        </div>
-    </div>
-    <script src="https://kit.fontawesome.com/8e39ae09b4.js" crossorigin="anonymous"></script>
-    <script type="module">
-        import * as THREE from 'https://cdn.skypack.dev/three@0.136.0';
-        import { OBJLoader } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/OBJLoader'
-        const scene = new THREE.Scene(); //set up the scene
-        const camera = new THREE.PerspectiveCamera(
-            60, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.set(0, 0, 1.25);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        const keyboardContainer = document.querySelector("#keyboard")
-        keyboardContainer.append(renderer.domElement);
-
-        function resize() {
-            renderer.setSize(keyboardContainer.clientWidth, keyboardContainer.clientHeight);
-            camera.aspect = keyboardContainer.clientWidth / keyboardContainer.clientHeight;
-            camera.updateProjectionMatrix();
-        };
-        window.addEventListener("resize", resize);
-
-        const color = new THREE.Color("rgb(0, 12, 165)");
-        var ambient = new THREE.AmbientLight(color);
-        scene.add(ambient);
-
-        const loader = new OBJLoader();
-
-        const kb = loader.load(
-            "models/keyboard.obj",
-            function (obj) {
-                // Add the loaded object to the scene
-                scene.add(obj);
-                obj.position.set(0, 0, 0);
-
-                setInterval(() => {
-                    obj.rotateY(0.01);
-                    obj.rotateX(0.01);
-                }, 1 / 60);
-            }
-        );
-
-        function animate() {
-            requestAnimationFrame(animate);
-            renderer.render(scene, camera);
-        }
-        animate();
-    </script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
-    <script src="js/bodymovin.js"></script>
-    <script src="js/index.js"></script>
+    <h2>This website is no longer being hosted on GitHub.</h2>
+    <h2>Please go to <a href="craigcontreras.dev">this website</a> for future updates.</h2>
 </body>
 
 </html>
